@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="Form05Persona" type="forms.Form05Persona"/>
         <form-bean 
             name="Form01VistaControlador"
             type="org.apache.struts.action.DynaActionForm">
@@ -17,6 +18,15 @@
             <form-property name="numero1" type="java.lang.String"/>
             <form-property name="numero2" type="java.lang.String"/>
         </form-bean>
+        <form-bean name="Form03TablaMultiplicar"
+                   type="org.apache.struts.action.DynaActionForm">
+                <form-property name="numero" type="java.lang.String"/>
+        </form-bean>
+        <form-bean name="Form04Collatz"
+                   type="org.apache.struts.action.DynaActionForm">
+                <form-property name="collatz" type="java.lang.String"/>
+        </form-bean>
+
     </form-beans>
     
     <global-exceptions>
@@ -29,6 +39,21 @@
     </global-forwards>
 
     <action-mappings>
+        <action input="/web05persona.jsp" 
+                name="Form05Persona" 
+                path="/Action05Persona"
+                scope="request" 
+                type="controllers.Action05Persona"/>
+        <action path="/Action04Collatz" 
+                type="controllers.Action04Collatz"
+                name="Form04Collatz"
+                scope="request"
+                input="/web04collatz.jsp"/>
+        <action path="/Action03TablaMultiplicar" 
+                type="controllers.Action03TablaMultiplicar"
+                name="Form03TablaMultiplicar"
+                scope="request"
+                input="/web03tablamultiplicar.jsp"/>
         <action path="/Action02SumarNumeros" 
                 type="controllers.Action02SumarNumeros"
                 name="Form02SumarNumeros"
