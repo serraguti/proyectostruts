@@ -7,6 +7,13 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="Form07BuscarDepartamentos"
+                   type="org.apache.struts.action.DynaActionForm">
+            <form-property name="iddepartamento" type="java.lang.String"/>
+        </form-bean>
+        <form-bean name="Form06Departamentos"
+                   type="org.apache.struts.action.DynaActionForm">
+        </form-bean>
         <form-bean name="Form05Persona" type="forms.Form05Persona"/>
         <form-bean 
             name="Form01VistaControlador"
@@ -34,11 +41,21 @@
     </global-exceptions>
 
     <global-forwards>
+        <forward name="buscardepartamentos" path="/web07buscardepartamentos.jsp"/>
         <forward name="respuestacorrecta" path="/web01respuestacorrecta.jsp"/>
         <forward name="welcome"  path="/Welcome.do"/>
     </global-forwards>
 
     <action-mappings>
+        <action path="/Action07BuscarDepartamentos" 
+                type="controllers.Action07BuscarDepartamentos"
+                name="Form07BuscarDepartamentos"
+                scope="request"/>
+        <action path="/Action06Departamentos" 
+                name="Form06Departamentos"
+                type="controllers.Action06Departamentos"
+                scope="request"
+                input="/web06departamentos.jsp"/>
         <action input="/web05persona.jsp" 
                 name="Form05Persona" 
                 path="/Action05Persona"

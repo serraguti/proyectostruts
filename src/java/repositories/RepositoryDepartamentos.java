@@ -2,6 +2,7 @@ package repositories;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -38,5 +39,26 @@ public class RepositoryDepartamentos {
         rs.close();
         cn.close();
         return lista;
+    }
+
+    public Departamento buscarDepartamento(int iddepartamento) throws SQLException {
+        Connection cn = this.getConnection();
+        String sql = "select * from dept where dept_no=?";
+        PreparedStatement pst = cn.prepareStatement(sql);
+        pst.setInt(1, iddepartamento);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            Departamento dept = new Departamento();
+            dept.setNumero(rs.getInt("DEPT_NO"));
+            dept.setNombre(rs.getString("DNOMBRE"));
+            dept.setLocalidad(rs.getString("LOC"));
+            rs.close();
+            cn.close();
+            return dept;
+        } else {
+            rs.close();
+            cn.close();
+            return null;
+        }
     }
 }
