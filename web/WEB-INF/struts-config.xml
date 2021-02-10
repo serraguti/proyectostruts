@@ -33,6 +33,8 @@
                    type="org.apache.struts.action.DynaActionForm">
                 <form-property name="collatz" type="java.lang.String"/>
         </form-bean>
+        <form-bean name="Form08InsertarDepartamento" 
+                   type="forms.Form08InsertarDepartamento"/>
 
     </form-beans>
     
@@ -41,12 +43,18 @@
     </global-exceptions>
 
     <global-forwards>
+        <forward name="webdepartamentos" path="/web06departamentos.jsp"/>
         <forward name="buscardepartamentos" path="/web07buscardepartamentos.jsp"/>
         <forward name="respuestacorrecta" path="/web01respuestacorrecta.jsp"/>
         <forward name="welcome"  path="/Welcome.do"/>
     </global-forwards>
 
     <action-mappings>
+        <action path="/Action08InsertarDepartamento" 
+                type="controllers.Action08InsertarDepartamento"
+                scope="request"
+                name="Form08InsertarDepartamento"
+                input="/web08insertardepartamento.jsp"/>
         <action path="/Action07BuscarDepartamentos" 
                 type="controllers.Action07BuscarDepartamentos"
                 name="Form07BuscarDepartamentos"
