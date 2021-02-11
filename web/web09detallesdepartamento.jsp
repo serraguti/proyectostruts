@@ -1,9 +1,7 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,12 +9,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <html:link action="/Action06Departamentos">Ir a departamenrtos</html:link>
-        <h1>PREGUNTA IMPORTANTE...</h1>
-        <html:form action="/Action01VistaControlador">
-            <p><b>¿Cuanto son 2 + 2?</b></p>
-            <html:text property="respuesta"/>
-            <html:submit value="Comprobar respuesta"/>
-        </html:form>
+        <h1>Detalles departamento</h1>
+        <logic:present name="detallesdepartamento">
+            <bean:write name="detallesdepartamento" filter="false"/>
+        </logic:present>
     </body>
 </html>

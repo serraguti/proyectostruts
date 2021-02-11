@@ -23,7 +23,8 @@
             </button>
             <div style="color:red">
                 <html:errors property="nombre"/>
-                <html:errors property="localidad"/>                
+                <html:errors property="localidad"/>  
+                <html:errors property="numero"/>
             </div>
         </html:form>
     </body>

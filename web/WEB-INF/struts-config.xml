@@ -43,6 +43,8 @@
     </global-exceptions>
 
     <global-forwards>
+        <forward name="webdetallesdepartamento" 
+            path="/web09detallesdepartamento.jsp"/>
         <forward name="webdepartamentos" path="/web06departamentos.jsp"/>
         <forward name="buscardepartamentos" path="/web07buscardepartamentos.jsp"/>
         <forward name="respuestacorrecta" path="/web01respuestacorrecta.jsp"/>
@@ -50,6 +52,9 @@
     </global-forwards>
 
     <action-mappings>
+        <action path="/Action09DetallesDepartamento" 
+                type="controllers.Action09DetallesDepartamento"
+                scope="request"/>
         <action path="/Action08InsertarDepartamento" 
                 type="controllers.Action08InsertarDepartamento"
                 scope="request"

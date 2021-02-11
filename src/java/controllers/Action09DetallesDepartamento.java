@@ -1,22 +1,17 @@
 package controllers;
 
 import beans.BeanDepartamentos;
-import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.Departamento;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import repositories.RepositoryDepartamentos;
 
-public class Action06Departamentos extends org.apache.struts.action.Action {
+public class Action09DetallesDepartamento extends org.apache.struts.action.Action {
 
-    RepositoryDepartamentos repo;
     BeanDepartamentos bean;
 
-    public Action06Departamentos() {
-        this.repo = new RepositoryDepartamentos();
+    public Action09DetallesDepartamento() {
         this.bean = new BeanDepartamentos();
     }
 
@@ -24,8 +19,10 @@ public class Action06Departamentos extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        String html = this.bean.getTablaDepartamentos();
-        request.setAttribute("tabladepartamentos", html);
-        return mapping.getInputForward();
+        String dato = request.getParameter("iddepartamento");
+        int deptno = Integer.parseInt(dato);
+        String html = this.bean.getDetallesDepartamento(deptno);
+        request.setAttribute("detallesdepartamento", html);
+        return mapping.findForward("webdetallesdepartamento");
     }
 }
