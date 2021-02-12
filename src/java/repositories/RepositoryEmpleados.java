@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import models.Empleado;
 import oracle.jdbc.OracleDriver;
@@ -37,7 +38,26 @@ public class RepositoryEmpleados {
         }
         rs.close();
         cn.close();
-        return lista;
+        if (lista.size() == 0) {
+            return null;
+        } else {
+            return lista;
+        }
+    }
+
+    public ArrayList<String> getOficios() throws SQLException {
+        Connection cn = this.getConnection();
+        String sql = "select distinct oficio from emp";
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        ArrayList<String> oficios = new ArrayList<>();
+        while (rs.next()) {
+            String ofi = rs.getString("OFICIO");
+            oficios.add(ofi);
+        }
+        rs.close();
+        cn.close();
+        return oficios;
     }
 
 }

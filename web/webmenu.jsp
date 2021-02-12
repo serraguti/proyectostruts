@@ -26,6 +26,16 @@
                     Menú departamentos estático
                 </html:link>
             </li>
+            <li>
+                <html:link href="web10menuoficiosestatico.jsp">
+                    Menú oficios estático
+                </html:link>
+            </li> 
+            <li>
+                <html:link action="/Action11MenuOficiosDinamicos">
+                    Menú oficios dinámicos
+                </html:link>
+            </li>
         </ul>
     </body>
 </html>
