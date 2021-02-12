@@ -36,6 +36,11 @@
                     Menú oficios dinámicos
                 </html:link>
             </li>
+            <li>
+                <html:link action="/Action12MenuDepartamentosDinamico">
+                    Menú departamentos dinámicos
+                </html:link>
+            </li>            
         </ul>
     </body>
 </html>

@@ -6,6 +6,7 @@ public class Empleado {
     private String apellido;
     private String oficio;
     private int salario;
+    private int iddepartamento;
 
     public Empleado() {
     }
@@ -15,6 +16,14 @@ public class Empleado {
         this.apellido = ape;
         this.oficio = ofi;
         this.salario = sal;
+    }
+
+    public Empleado(int id, String ape, String ofi, int sal, int iddept) {
+        this.idEmpleado = id;
+        this.apellido = ape;
+        this.oficio = ofi;
+        this.salario = sal;
+        this.iddepartamento = iddept;
     }
 
     public int getIdEmpleado() {
@@ -48,4 +57,13 @@ public class Empleado {
     public void setSalario(int salario) {
         this.salario = salario;
     }
+
+    public int getIddepartamento() {
+        return iddepartamento;
+    }
+
+    public void setIddepartamento(int iddepartamento) {
+        this.iddepartamento = iddepartamento;
+    }
+
 }
