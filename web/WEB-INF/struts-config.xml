@@ -7,6 +7,10 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="Form13EliminarDepartamento"
+                   type="org.apache.struts.action.DynaActionForm">
+            <form-property name="iddepartamento" type="java.lang.String"/>
+        </form-bean>
         <form-bean name="Form07BuscarDepartamentos"
                    type="org.apache.struts.action.DynaActionForm">
             <form-property name="iddepartamento" type="java.lang.String"/>
@@ -43,6 +47,8 @@
     </global-exceptions>
 
     <global-forwards>
+        <forward name="web13eliminardepartamento"
+                path="/web13eliminardepartamento.jsp"/>
         <forward name="web12detallesdepartamento"
                 path="/web12detallesdepartamento.jsp"/>
         <forward name="webmenudepartamentosdinamicos"
@@ -60,6 +66,11 @@
     </global-forwards>
 
     <action-mappings>
+        <action path="/Action13EliminarDepartamento" 
+                type="controllers.Action13EliminarDepartamento"
+                name="Form13EliminarDepartamento"
+                scope="request"/>
+        <action path="/Action13TablaDepartamentos" type="controllers.Action13TablaDepartamentos"/>
         <action path="/Action12DetallesDepartamento" type="controllers.Action12DetallesDepartamento"/>
         <action path="/Action12MenuDepartamentosDinamico" type="controllers.Action12MenuDepartamentosDinamico"/>
         <action path="/Action11MenuOficiosDinamicos" type="controllers.Action11MenuOficiosDinamicos"/>
