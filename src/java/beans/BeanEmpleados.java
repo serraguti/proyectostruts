@@ -36,4 +36,13 @@ public class BeanEmpleados {
             return html;
         }
     }
+    
+    public String getDetallesEmpleado(int idempleado) throws SQLException 
+    {
+        Empleado empleado = this.repo.buscarEmpleado(idempleado);
+        String html = "<h1>Apellido " + empleado.getApellido() + "</h1>";
+        html += "<h1>Oficio: " + empleado.getOficio() + "</h1>";
+        html += "<h1>Salario: " + empleado.getSalario() + "</h1>";
+        return html;
+    }
 }

@@ -46,6 +46,11 @@
                     Eliminar departamento Tabla
                 </html:link>
             </li>
+            <li>
+                <html:link action="/Action14Empleados">
+                    Empleados detalles
+                </html:link>
+            </li>
         </ul>
     </body>
 </html>
