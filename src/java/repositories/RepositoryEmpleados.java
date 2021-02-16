@@ -103,6 +103,14 @@ public class RepositoryEmpleados {
         }
     }
     
-    
-
+    public void incrementarSalarioEmpleado(int incremento, int idempleado) throws SQLException{
+        Connection cn = this.getConnection();
+        String sql = "update emp set salario = salario + ? "
+                + " where emp_no=?";
+        PreparedStatement pst = cn.prepareStatement(sql);
+        pst.setInt(1, incremento);
+        pst.setInt(2, idempleado);
+        pst.executeUpdate();
+        cn.close();
+    }
 }

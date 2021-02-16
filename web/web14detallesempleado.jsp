@@ -13,6 +13,12 @@
         <html:link action="/Action14Empleados">
             Volver a Empleados
         </html:link>
+        <html:link action="/Action14DetallesEmpleado"
+                   paramId="incrementar"
+                   paramName="EMPLEADO"
+                   paramProperty="idEmpleado">
+            Incrementar
+        </html:link>    
         <logic:present name="detallesempleado">
             <bean:write name="detallesempleado" filter="false"/>
         </logic:present>
