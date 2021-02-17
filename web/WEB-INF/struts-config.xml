@@ -43,6 +43,14 @@
                    type="org.apache.struts.action.DynaActionForm">
                 <form-property name="inscripcion" type="java.lang.String"/>
         </form-bean>
+        <form-bean name="Form17EmpleadosDetallesCombo"
+                   type="org.apache.struts.action.DynaActionForm">
+                <form-property name="idempleado" type="java.lang.String"/>
+        </form-bean>
+        <form-bean name="Form18EmpleadosOficiosCombo"
+                   type="org.apache.struts.action.DynaActionForm">
+                <form-property name="oficio" type="java.lang.String"/>
+        </form-bean>
     </form-beans>
     
     <global-exceptions>
@@ -50,6 +58,8 @@
     </global-exceptions>
 
     <global-forwards>
+        <forward name="web18empleadosoficioscombo" path="/web18empleadosoficioscombo.jsp"/>
+        <forward name="web17empleadosdetallescombo" path="/web17empleadosdetallescombo.jsp"/>
         <forward name="web16eliminarenfermos" path="/web16eliminarenfermos.jsp"/>
         <forward name="web14empleados" path="/web14empleados.jsp"/>
         <forward name="web14detallesempleado" path="/web14detallesempleado.jsp"/>
@@ -72,6 +82,14 @@
     </global-forwards>
 
     <action-mappings>
+        <action path="/Action18EmpleadosOficiosCombo" 
+                type="controllers.Action18EmpleadosOficiosCombo"
+                name="Form18EmpleadosOficiosCombo"
+                scope="request"/>
+        <action path="/Action17EmpleadosDetallesCombo" 
+                type="controllers.Action17EmpleadosDetallesCombo"
+                name="Form17EmpleadosDetallesCombo"
+                scope="request"/>
         <action path="/Action16EliminarEnfermo" 
                 type="controllers.Action16EliminarEnfermo"
                 name="Form16EliminarEnfermo"
@@ -140,6 +158,10 @@
     
     <plug-in className="plugins.PlugInDepartamentos"></plug-in>
     <plug-in className="plugins.PluginEnfermos"></plug-in>
+    <plug-in className="plugins.PlugInEmpleados"></plug-in>
+    <plug-in className="plugins.PlugInOficios"></plug-in>
+    
+    
     <plug-in className="org.apache.struts.tiles.TilesPlugin" >
         <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
         <set-property property="moduleAware" value="true" />
