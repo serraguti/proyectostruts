@@ -51,6 +51,8 @@
                    type="org.apache.struts.action.DynaActionForm">
                 <form-property name="oficio" type="java.lang.String"/>
         </form-bean>
+        <form-bean name="Form19SeleccionMultipleDepartamentos" 
+                   type="forms.Form19SeleccionMultipleDepartamentos"/>
     </form-beans>
     
     <global-exceptions>
@@ -58,6 +60,8 @@
     </global-exceptions>
 
     <global-forwards>
+        <forward name="web19seleccionmultipledepartamentos" 
+            path="/web19seleccionmultipledepartamentos.jsp"/>
         <forward name="web18empleadosoficioscombo" path="/web18empleadosoficioscombo.jsp"/>
         <forward name="web17empleadosdetallescombo" path="/web17empleadosdetallescombo.jsp"/>
         <forward name="web16eliminarenfermos" path="/web16eliminarenfermos.jsp"/>
@@ -82,6 +86,10 @@
     </global-forwards>
 
     <action-mappings>
+        <action path="/Action19SeleccionMultipleDepartamentos" 
+                type="controllers.Action19SeleccionMultipleDepartamentos"
+                name="Form19SeleccionMultipleDepartamentos"
+                scope="request"/>
         <action path="/Action18EmpleadosOficiosCombo" 
                 type="controllers.Action18EmpleadosOficiosCombo"
                 name="Form18EmpleadosOficiosCombo"

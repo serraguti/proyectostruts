@@ -113,4 +113,31 @@ public class RepositoryEmpleados {
         pst.executeUpdate();
         cn.close();
     }
+    
+    public ArrayList<Empleado> getEmpleadosDepartamentos(String[] datos) throws SQLException{
+        Connection cn = this.getConnection();
+        //SELECT * FROM EMP WHERE DEPT_NO IN (10,20)
+        String deptnos = "";
+        for (String d: datos){
+            deptnos += d + ",";
+        }
+        deptnos = deptnos.substring(0, deptnos.length() - 1);
+        String sql = "select * from emp where dept_no in(" + deptnos + ")";
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        ArrayList<Empleado> lista = new ArrayList<>();
+        while (rs.next()){
+            int id = rs.getInt("EMP_NO");
+            String ape = rs.getString("APELLIDO");
+            String ofi = rs.getString("OFICIO");
+            int sal = rs.getInt("SALARIO");
+            int deptno = rs.getInt("DEPT_NO");
+            Empleado emp = new Empleado(id, ape, ofi, sal, deptno);
+            lista.add(emp);
+        }
+        rs.close();
+        cn.close();
+        return lista;
+        
+    }
 }
